@@ -58,29 +58,53 @@ const PROJECTS = [
 		note: "Educational research project — not investment advice. Paper trading only."
 	},
 	{
-		id: "finmentor",
-		theme: { bg: "#FBE2D0", fg: "#3E0F0F", font: "Abril Fatface", gf: "Abril+Fatface", track: "-.01em" },
-		name: "ET FinMentor",
-		tagline: "An AI personal-finance mentor — ET Gen AI Hackathon national finalist",
-		detail: "Mobile app",
-		tags: ["ai", "fintech", "apps"],
+		id: "subsweep",
+		theme: { bg: "#FF3E7F", fg: "#14102B", font: "Shrikhand", gf: "Shrikhand", track: "0em" },
+		name: "SubSweep",
+		tagline: "Find, understand and get out of forgotten subscriptions",
+		detail: "Web app",
+		tags: ["fintech", "apps"],
 		year: "2026",
-		role: "Hackathon build — mobile & AI",
-		stack: ["React Native", "Expo", "TypeScript", "Gemini", "Groq", "Supabase"],
+		role: "Solo — product & front end",
+		stack: ["React", "TypeScript", "Vite", "IndexedDB (Dexie)", "PapaParse", "Vitest", "PWA"],
 		featured: true,
-		cover: { type: "phone", img: "assets/img/finmentor-dashboard.jpg", bg: "#EDE7DC", alt: "ET FinMentor dashboard on a phone" },
-		gallery: ["assets/img/finmentor-dashboard.jpg", "assets/img/finmentor-xray.jpg", "assets/img/finmentor-fire.jpg", "assets/img/finmentor-modules.jpg"],
-		summary: "Built for the problem statement “95% of Indians don't have a financial plan — make planning as easy as checking WhatsApp.” One app covers FIRE planning, money health, life events, taxes, couples' planning and portfolio analysis.",
+		cover: { type: "window", img: "assets/img/subsweep-explore-board.png", bg: "#F6E3EA", alt: "SubSweep explore board: every subscription is a card, bigger when it costs more" },
+		gallery: ["assets/img/subsweep-yearly-simulator.png", "assets/img/subsweep-insights.png", "assets/img/subsweep-cancel-kit.png", "assets/img/subsweep-mobile-list.png"],
+		summary: "SubSweep reads your bank statement, spots the recurring charges and tells you what they really cost per year. Then it helps you cancel, and checks your next statement to make sure the charges actually stopped. Everything runs in the browser: statements are parsed locally, data lives in IndexedDB and nothing is ever uploaded.",
 		highlights: [
-			"FIRE planner with month-by-month SIP roadmap, corpus projection and an AI 12-month action plan.",
-			"Six-dimension Money Health Score — emergency, insurance, investment, debt, tax, retirement — computed fully offline.",
-			"Tax Wizard reads Form 16 with Gemini Vision and compares old vs new regime with ranked 80C / NPS / HRA moves.",
-			"Portfolio X-Ray turns a CAMS/KFintech statement into true XIRR, overlap and expense drag in under 10 seconds.",
-			"Automatic Gemini → Groq (Llama 3.1) failover on rate limits, invisible to the user."
+			"Scans bank and card CSVs and detects weekly, monthly, quarterly and yearly charges, flagging price creep along the way.",
+			"Reads messy real-world statements: signed amounts, separate debit/credit columns, Dr/Cr markers, European decimals, semicolon or tab delimiters and junk lines above the header.",
+			"Cancel & verify: a cancellation kit per service, then a later scan marks it Verified, or flags Still charging with a dispute message ready to copy.",
+			"Yearly view with a “what you'd save” simulator, plus insights for overlapping services, unused subscriptions and trials about to convert.",
+			"Multi-currency totals with manual exchange rates, .ics renewal reminders, JSON backup and restore, and an installable PWA with light and dark themes."
 		],
-		metrics: [["R2", "national finalist"], ["6", "planning modules"], ["<10s", "portfolio X-ray"]],
-		links: { github: "https://github.com/MananS8805/ET_Fin_Mentor" },
-		release: { repo: "ET_Fin_Mentor", ext: ".apk", label: "Android APK" }
+		metrics: [["0", "bytes uploaded"], ["4", "billing cycles detected"], ["5", "date formats parsed"]],
+		links: { github: "https://github.com/MananS8805/Subsweep" }
+	},
+	{
+		id: "sporty",
+		theme: { bg: "#FF6B1A", fg: "#111111", font: "Graduate", gf: "Graduate", track: "0em", upper: true },
+		name: "Sporty",
+		tagline: "Every team you follow, across every league, in one feed",
+		detail: "Android app",
+		tags: ["apps"],
+		year: "2026",
+		role: "Solo — Android",
+		stack: ["Kotlin", "Jetpack Compose", "WorkManager", "OkHttp", "DataStore", "Coil"],
+		featured: true,
+		cover: { type: "phone", img: "assets/img/sporty-01-home.png", bg: "#FBE3D2", alt: "Sports Hub home feed with followed teams and a match countdown" },
+		gallery: ["assets/img/sporty-01-home.png", "assets/img/sporty-03-team-page.png", "assets/img/sporty-06-match-forecast.png", "assets/img/sporty-08-leagues.png"],
+		summary: "Sports Hub (the app behind the Sporty repo) follows Manchester United, Ferrari and an IPL team in a single feed: fixtures, live scores, league tables and news. It talks to public sports APIs straight from the phone and keeps your teams on the device, so there is no server and no account.",
+		highlights: [
+			"About 290 competitions: 219 football leagues, IPL and other cricket, 38 US leagues, rugby and Formula 1.",
+			"Home feed with story circles, team-coloured hero cards with countdowns and a day-grouped timeline; team pages with form, table position, squad and where to watch.",
+			"Match forecasts from bookmaker odds with the margin removed, and every input shown.",
+			"Kickoff, goal and full-time notifications through WorkManager.",
+			"One network layer with per-host rate limits, back-off after 403/429 and stale-while-revalidate caching, so free APIs stay usable."
+		],
+		metrics: [["~290", "competitions"], ["0", "servers or accounts"], ["3", "live data sources"]],
+		links: { github: "https://github.com/MananS8805/Sporty" },
+		release: { repo: "Sporty", ext: ".apk", label: "Android APK" }
 	},
 	{
 		id: "walllearn",
@@ -168,25 +192,6 @@ const PROJECTS = [
 		release: { repo: "ML-based-formulae-1-predictions-model", ext: ".apk", label: "Android APK" }
 	},
 	{
-		id: "msme",
-		theme: { bg: "#0D6E50", fg: "#EFFFF6", font: "Bungee", gf: "Bungee", track: "0em" },
-		name: "MSME Health Score",
-		tagline: "Financial-health scoring and lending copilot for MSMEs",
-		detail: "Web dashboard",
-		tags: ["ai", "fintech"],
-		year: "2026",
-		role: "Full-stack & scoring engine",
-		stack: ["Next.js", "TypeScript", "Python", "shadcn/ui"],
-		cover: { type: "type", glyph: "742", caption: "Health score", bg: "#E4EDE8" },
-		summary: "A lender-facing dashboard that scores the financial health of small businesses, explains the score and surfaces risks, anomalies and lending opportunities.",
-		highlights: [
-			"Python scoring engine with a score-breakdown radar and explainability panel.",
-			"Portfolio view, risk distribution, anomaly alerts and loan recommendations.",
-			"An AI copilot chat card for asking questions about any MSME."
-		],
-		links: { github: "https://github.com/MananS8805/Financial_healh_score_msme", live: "https://financial-healh-score-msme.vercel.app" }
-	},
-	{
 		id: "fixmyjournal",
 		theme: { bg: "#F1E5CC", fg: "#2A1A0D", font: "UnifrakturMaguntia", gf: "UnifrakturMaguntia", track: "0em" },
 		name: "Fix My Journal",
@@ -196,6 +201,7 @@ const PROJECTS = [
 		year: "2026",
 		role: "Backend & AI",
 		stack: ["FastAPI", "Docling", "Gemini", "React"],
+		featured: true,
 		cover: { type: "type", glyph: "¶", caption: "IEEE · Nature · ACM", bg: "#ECE8F1" },
 		summary: "Upload a PDF or DOCX manuscript and get it back reformatted for the journal you're submitting to — with citations checked and every change explained.",
 		highlights: [
@@ -204,25 +210,6 @@ const PROJECTS = [
 			"Exports to LaTeX, DOCX or PDF with a human-readable changelog."
 		],
 		links: { github: "https://github.com/MananS8805/Fix_my_journal", live: "https://fixmyjournal.vercel.app" }
-	},
-	{
-		id: "mfreco",
-		theme: { bg: "#FF9A2E", fg: "#1C1205", font: "Bungee Shade", gf: "Bungee+Shade", track: "0em" },
-		name: "Fund Recommender",
-		tagline: "A vector-based mutual-fund recommendation engine",
-		detail: "Recommender",
-		tags: ["ai", "fintech"],
-		year: "2026",
-		role: "Solo — data & modelling",
-		stack: ["Python", "pandas", "scikit-learn", "Embeddings"],
-		cover: { type: "type", glyph: "₹80T", caption: "Paradox of choice", bg: "#E9EEF0" },
-		summary: "Indian investors face 15,000+ schemes and no menu. This engine builds a full mutual-fund dataset, estimates expense ratios from SEBI rules where data is missing, and matches funds to an investor profile with vector similarity.",
-		highlights: [
-			"End-to-end dataset build: fetch, merge, AUM enrichment and feature engineering.",
-			"Rule-based TER estimator grounded in SEBI caps and AUM economies of scale.",
-			"Written up in the blog post “From Analysis Paralysis to Alpha”."
-		],
-		links: { github: "https://github.com/MananS8805/Mutual-Fund-Investment-Recommendation", blog: "https://mananshethblogs.wordpress.com/2026/02/03/from-analysis-paralysis-to-alpha-building-a-vector-based-financial-recommendation-engine/" }
 	},
 	{
 		id: "taxrag",
@@ -260,39 +247,6 @@ const PROJECTS = [
 			"Flutter client for Android and web."
 		],
 		links: { github: "https://github.com/MananS8805/RAG-AGENT" }
-	},
-	{
-		id: "resumeanalyzer",
-		theme: { bg: "#DCE8FF", fg: "#14234D", title: "#C8102E", font: "Permanent Marker", gf: "Permanent+Marker", track: "0em" },
-		name: "Resume Analyzer",
-		tagline: "AI résumé scoring with ATS feedback",
-		detail: "Web app",
-		tags: ["ai"],
-		year: "2025",
-		role: "Front end",
-		stack: ["React Router", "TypeScript", "Puter.js", "Docker"],
-		cover: { type: "window", img: "assets/img/resume-analyzer.png", bg: "#EEEAF3", alt: "Resume Analyzer score screen" },
-		summary: "Upload a résumé, get an ATS score, a breakdown by category and concrete suggestions — in a clean, animated interface.",
-		highlights: [
-			"PDF-to-image pipeline in the browser and AI feedback via Puter.js.",
-			"Score gauges, ATS panel and per-section accordions."
-		],
-		links: { github: "https://github.com/MananS8805/resume-analyzer" }
-	},
-	{
-		id: "coreinventory",
-		theme: { bg: "#C69D6B", fg: "#1A1307", font: "Stardos Stencil", gf: "Stardos+Stencil:wght@700", track: "0em", upper: true },
-		name: "CoreInventory",
-		tagline: "Full-stack inventory management",
-		detail: "Web app",
-		tags: ["apps"],
-		year: "2026",
-		role: "Full-stack",
-		stack: ["React", "Vite", "Tailwind", "Express", "JWT"],
-		cover: { type: "type", glyph: "SKU", caption: "Stock in / out", bg: "#EAEAE6" },
-		summary: "An inventory management prototype built to learn and collaborate on modern full-stack practice.",
-		highlights: ["React + Vite + Tailwind front end, Express REST API with JWT auth."],
-		links: { github: "https://github.com/MananS8805/CoreInventory" }
 	}
 ];
 

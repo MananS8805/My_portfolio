@@ -846,7 +846,7 @@ function heroChart() {
 
 function catalysts() {
 	const map = [
-		["#work", 2.1, "Analysts initiate coverage after reviewing 13 projects"],
+		["#work", 2.1, `Analysts initiate coverage after reviewing ${PROJECTS.length} projects`],
 		[".numbers", 1.6, "Beats GARCH by 16% on RMSE — shares rally"],
 		["#writing", 1.4, "Thought leadership lifts retail interest"],
 		["#about", 1.8, "Fundamentals check out: GPA 8.9, district gold in the pool"],

@@ -42,12 +42,12 @@ Everything lives in `assets/js/data.js`:
 
 ## Turning on the APK / installer downloads
 
-Projects with a `release` entry (NiveshRL, ET FinMentor, WallLearn, F1 Predictor) ask GitHub for their **latest release** when they're opened. Until a release exists, the button reads "release coming soon". To switch one on:
+Projects with a `release` entry (NiveshRL, Sporty, WallLearn, F1 Predictor) ask GitHub for their **latest release** when they're opened. Until a release exists, the button reads "release coming soon". To switch one on:
 
 1. Build the file:
    - WallLearn (`VocabLearn` repo): `./gradlew assembleRelease` gives you `app/build/outputs/apk/release/*.apk`
    - NiveshRL: build with PyInstaller, then compile `packaging/installer.iss` with Inno Setup to get a `*.exe`
-   - ET FinMentor: `eas build -p android --profile preview` (set `"buildType": "apk"` in eas.json)
+   - Sporty: `cd android && ./gradlew assembleRelease` gives you `app/build/outputs/apk/release/*.apk`
    - F1 Predictor: `flutter build apk --release`
 2. On GitHub, go to the repo → **Releases** → **Draft a new release**. Tag it (e.g. `v1.0.0`), attach the `.apk` / `.exe`, and publish.
 
